@@ -15,19 +15,19 @@
 # limitations under the License.
 """ Classes to support Encoder-Decoder architectures """
 
-import torch
-
 from typing import Optional
+
+import torch
 from torch import argmax
 
-from .configuration_encoder_decoder import EncoderDecoderConfig
-from .configuration_utils import PretrainedConfig
-from .file_utils import add_start_docstrings, add_start_docstrings_to_model_forward, replace_return_docstrings
-from .modeling_outputs import Seq2SeqLMOutput
-from .modeling_utils import PreTrainedModel
-from .utils import logging
-
-
+from xlibs.modeling_bert import BertModel
+from xlibs.configuration_bert import BertConfig
+from xlibs.configuration_encoder_decoder import EncoderDecoderConfig
+from xlibs.configuration_utils import PretrainedConfig
+from xlibs.file_utils import add_start_docstrings, add_start_docstrings_to_model_forward, replace_return_docstrings
+from xlibs.modeling_outputs import Seq2SeqLMOutput
+from xlibs.modeling_utils import PreTrainedModel
+from xlibs.utils import logging
 
 logger = logging.get_logger(__name__)
 
@@ -241,9 +241,8 @@ class EncoderDecoderModel(PreTrainedModel):
             from .modeling_auto import AutoModel
 
             if "config" not in kwargs_encoder:
-                from .configuration_auto import AutoConfig
 
-                encoder_config = AutoConfig.from_pretrained(encoder_pretrained_model_name_or_path)
+                encoder_config = BertConfig.from_pretrained(encoder_pretrained_model_name_or_path)
                 if encoder_config.is_decoder is True or encoder_config.add_cross_attention is True:
 
                     logger.info(
@@ -254,7 +253,7 @@ class EncoderDecoderModel(PreTrainedModel):
 
                 kwargs_encoder["config"] = encoder_config
 
-            encoder = AutoModel.from_pretrained(encoder_pretrained_model_name_or_path, *model_args, **kwargs_encoder)
+            encoder = BertModel.from_pretrained(encoder_pretrained_model_name_or_path, *model_args, **kwargs_encoder)
 
         decoder = kwargs_decoder.pop("model", None)
         if decoder is None:
@@ -264,9 +263,8 @@ class EncoderDecoderModel(PreTrainedModel):
             from .modeling_auto import AutoModelForCausalLM
 
             if "config" not in kwargs_decoder:
-                from .configuration_auto import AutoConfig
 
-                decoder_config = AutoConfig.from_pretrained(decoder_pretrained_model_name_or_path)
+                decoder_config = BertConfig.from_pretrained(decoder_pretrained_model_name_or_path)
                 if decoder_config.is_decoder is False or decoder_config.add_cross_attention is False:
                     logger.info(
                         f"Initializing {decoder_pretrained_model_name_or_path} as a decoder model. Cross attention layers are added to {decoder_pretrained_model_name_or_path} and randomly initialized if {decoder_pretrained_model_name_or_path}'s architecture allows for cross attention layers."
@@ -291,9 +289,8 @@ class EncoderDecoderModel(PreTrainedModel):
             from .modeling_auto import AutoModelForCausalLM
 
             if "config" not in kwargs_decoder2:
-                from .configuration_auto import AutoConfig
 
-                decoder2_config = AutoConfig.from_pretrained(decoder_pretrained_model_name_or_path)
+                decoder2_config = BertConfig.from_pretrained(decoder_pretrained_model_name_or_path)
                 if decoder2_config.is_decoder is False or decoder_config.add_cross_attention is False:
                     logger.info(
                         f"Initializing {decoder2_pretrained_model_name_or_path} as a decoder model. Cross attention layers are added to {decoder_pretrained_model_name_or_path} and randomly initialized if {decoder_pretrained_model_name_or_path}'s architecture allows for cross attention layers."

@@ -18,7 +18,7 @@
 import warnings
 from collections import OrderedDict
 
-from .configuration_auto import (
+from xlibs.configuration_auto import (
     AlbertConfig,
     AutoConfig,
     BartConfig,
@@ -56,10 +56,10 @@ from .configuration_auto import (
     XLNetConfig,
     replace_list_option_in_docstrings,
 )
-from .configuration_marian import MarianConfig
-from .configuration_utils import PretrainedConfig
-from .file_utils import add_start_docstrings
-from .modeling_albert import (
+from xlibs.configuration_marian import MarianConfig
+from xlibs.configuration_utils import PretrainedConfig
+from xlibs.file_utils import add_start_docstrings
+from xlibs.modeling_albert import (
     AlbertForMaskedLM,
     AlbertForMultipleChoice,
     AlbertForPreTraining,
@@ -68,13 +68,13 @@ from .modeling_albert import (
     AlbertForTokenClassification,
     AlbertModel,
 )
-from .modeling_bart import (
+from xlibs.modeling_bart import (
     BartForConditionalGeneration,
     BartForQuestionAnswering,
     BartForSequenceClassification,
     BartModel,
 )
-from .modeling_bert import (
+from xlibs.modeling_bert import (
     BertForMaskedLM,
     BertForMultipleChoice,
     BertForNextSentencePrediction,
@@ -85,9 +85,9 @@ from .modeling_bert import (
     BertLMHeadModel,
     BertModel,
 )
-from .modeling_bert_generation import BertGenerationDecoder, BertGenerationEncoder
-from .modeling_blenderbot import BlenderbotForConditionalGeneration
-from .modeling_camembert import (
+from xlibs.modeling_bert_generation import BertGenerationDecoder, BertGenerationEncoder
+from xlibs.modeling_blenderbot import BlenderbotForConditionalGeneration
+from xlibs.modeling_camembert import (
     CamembertForCausalLM,
     CamembertForMaskedLM,
     CamembertForMultipleChoice,
@@ -96,9 +96,9 @@ from .modeling_camembert import (
     CamembertForTokenClassification,
     CamembertModel,
 )
-from .modeling_ctrl import CTRLLMHeadModel, CTRLModel
-from .modeling_deberta import DebertaForSequenceClassification, DebertaModel
-from .modeling_distilbert import (
+from xlibs.modeling_ctrl import CTRLLMHeadModel, CTRLModel
+from xlibs.modeling_deberta import DebertaForSequenceClassification, DebertaModel
+from xlibs.modeling_distilbert import (
     DistilBertForMaskedLM,
     DistilBertForMultipleChoice,
     DistilBertForQuestionAnswering,
@@ -106,8 +106,8 @@ from .modeling_distilbert import (
     DistilBertForTokenClassification,
     DistilBertModel,
 )
-from .modeling_dpr import DPRQuestionEncoder
-from .modeling_electra import (
+from xlibs.modeling_dpr import DPRQuestionEncoder
+from xlibs.modeling_electra import (
     ElectraForMaskedLM,
     ElectraForMultipleChoice,
     ElectraForPreTraining,
@@ -116,8 +116,8 @@ from .modeling_electra import (
     ElectraForTokenClassification,
     ElectraModel,
 )
-from .modeling_encoder_decoder import EncoderDecoderModel
-from .modeling_flaubert import (
+from xlibs.modeling_encoder_decoder import EncoderDecoderModel
+from xlibs.modeling_flaubert import (
     FlaubertForMultipleChoice,
     FlaubertForQuestionAnsweringSimple,
     FlaubertForSequenceClassification,
@@ -125,8 +125,8 @@ from .modeling_flaubert import (
     FlaubertModel,
     FlaubertWithLMHeadModel,
 )
-from .modeling_fsmt import FSMTForConditionalGeneration, FSMTModel
-from .modeling_funnel import (
+from xlibs.modeling_fsmt import FSMTForConditionalGeneration, FSMTModel
+from xlibs.modeling_funnel import (
     FunnelForMaskedLM,
     FunnelForMultipleChoice,
     FunnelForPreTraining,
@@ -135,9 +135,9 @@ from .modeling_funnel import (
     FunnelForTokenClassification,
     FunnelModel,
 )
-from .modeling_gpt2 import GPT2ForSequenceClassification, GPT2LMHeadModel, GPT2Model
-from .modeling_layoutlm import LayoutLMForMaskedLM, LayoutLMForTokenClassification, LayoutLMModel
-from .modeling_longformer import (
+from xlibs.modeling_gpt2 import GPT2ForSequenceClassification, GPT2LMHeadModel, GPT2Model
+from xlibs.modeling_layoutlm import LayoutLMForMaskedLM, LayoutLMForTokenClassification, LayoutLMModel
+from xlibs.modeling_longformer import (
     LongformerForMaskedLM,
     LongformerForMultipleChoice,
     LongformerForQuestionAnswering,
@@ -145,10 +145,10 @@ from .modeling_longformer import (
     LongformerForTokenClassification,
     LongformerModel,
 )
-from .modeling_lxmert import LxmertForPreTraining, LxmertForQuestionAnswering, LxmertModel
-from .modeling_marian import MarianMTModel
-from .modeling_mbart import MBartForConditionalGeneration
-from .modeling_mobilebert import (
+from xlibs.modeling_lxmert import LxmertForPreTraining, LxmertForQuestionAnswering, LxmertModel
+from xlibs.modeling_marian import MarianMTModel
+from xlibs.modeling_mbart import MBartForConditionalGeneration
+from xlibs.modeling_mobilebert import (
     MobileBertForMaskedLM,
     MobileBertForMultipleChoice,
     MobileBertForNextSentencePrediction,
@@ -158,23 +158,23 @@ from .modeling_mobilebert import (
     MobileBertForTokenClassification,
     MobileBertModel,
 )
-from .modeling_openai import OpenAIGPTForSequenceClassification, OpenAIGPTLMHeadModel, OpenAIGPTModel
-from .modeling_pegasus import PegasusForConditionalGeneration
-from .modeling_prophetnet import ProphetNetForCausalLM, ProphetNetForConditionalGeneration, ProphetNetModel
-from .modeling_rag import (  # noqa: F401 - need to import all RagModels to be in globals() function
+from xlibs.modeling_openai import OpenAIGPTForSequenceClassification, OpenAIGPTLMHeadModel, OpenAIGPTModel
+from xlibs.modeling_pegasus import PegasusForConditionalGeneration
+from xlibs.modeling_prophetnet import ProphetNetForCausalLM, ProphetNetForConditionalGeneration, ProphetNetModel
+from xlibs.modeling_rag import (  # noqa: F401 - need to import all RagModels to be in globals() function
     RagModel,
     RagSequenceForGeneration,
     RagTokenForGeneration,
 )
-from .modeling_reformer import (
+from xlibs.modeling_reformer import (
     ReformerForMaskedLM,
     ReformerForQuestionAnswering,
     ReformerForSequenceClassification,
     ReformerModel,
     ReformerModelWithLMHead,
 )
-from .modeling_retribert import RetriBertModel
-from .modeling_roberta import (
+from xlibs.modeling_retribert import RetriBertModel
+from xlibs.modeling_roberta import (
     RobertaForCausalLM,
     RobertaForMaskedLM,
     RobertaForMultipleChoice,
@@ -183,7 +183,7 @@ from .modeling_roberta import (
     RobertaForTokenClassification,
     RobertaModel,
 )
-from .modeling_squeezebert import (
+from xlibs.modeling_squeezebert import (
     SqueezeBertForMaskedLM,
     SqueezeBertForMultipleChoice,
     SqueezeBertForQuestionAnswering,
@@ -191,9 +191,9 @@ from .modeling_squeezebert import (
     SqueezeBertForTokenClassification,
     SqueezeBertModel,
 )
-from .modeling_t5 import T5ForConditionalGeneration, T5Model
-from .modeling_transfo_xl import TransfoXLLMHeadModel, TransfoXLModel
-from .modeling_xlm import (
+from xlibs.modeling_t5 import T5ForConditionalGeneration, T5Model
+from xlibs.modeling_transfo_xl import TransfoXLLMHeadModel, TransfoXLModel
+from xlibs.modeling_xlm import (
     XLMForMultipleChoice,
     XLMForQuestionAnsweringSimple,
     XLMForSequenceClassification,
@@ -201,12 +201,12 @@ from .modeling_xlm import (
     XLMModel,
     XLMWithLMHeadModel,
 )
-from .modeling_xlm_prophetnet import (
+from xlibs.modeling_xlm_prophetnet import (
     XLMProphetNetForCausalLM,
     XLMProphetNetForConditionalGeneration,
     XLMProphetNetModel,
 )
-from .modeling_xlm_roberta import (
+from xlibs.modeling_xlm_roberta import (
     XLMRobertaForCausalLM,
     XLMRobertaForMaskedLM,
     XLMRobertaForMultipleChoice,
@@ -215,7 +215,7 @@ from .modeling_xlm_roberta import (
     XLMRobertaForTokenClassification,
     XLMRobertaModel,
 )
-from .modeling_xlnet import (
+from xlibs.modeling_xlnet import (
     XLNetForMultipleChoice,
     XLNetForQuestionAnsweringSimple,
     XLNetForSequenceClassification,
@@ -223,7 +223,7 @@ from .modeling_xlnet import (
     XLNetLMHeadModel,
     XLNetModel,
 )
-from .utils import logging
+from xlibs.utils import logging
 
 
 logger = logging.get_logger(__name__)

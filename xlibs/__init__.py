@@ -19,7 +19,7 @@ else:
 
 # Integrations: this needs to come before other ml imports
 # in order to allow any 3rd-party code to initialize properly
-from .integrations import (  # isort:skip
+from xlibs.integrations import (  # isort:skip
     is_comet_available,
     is_optuna_available,
     is_ray_available,
@@ -28,46 +28,46 @@ from .integrations import (  # isort:skip
 )
 
 # Configurations
-from .configuration_albert import ALBERT_PRETRAINED_CONFIG_ARCHIVE_MAP, AlbertConfig
-from .configuration_auto import ALL_PRETRAINED_CONFIG_ARCHIVE_MAP, CONFIG_MAPPING, AutoConfig
-from .configuration_bart import BartConfig
-from .configuration_bert import BERT_PRETRAINED_CONFIG_ARCHIVE_MAP, BertConfig
-from .configuration_bert_generation import BertGenerationConfig
-from .configuration_blenderbot import BLENDERBOT_PRETRAINED_CONFIG_ARCHIVE_MAP, BlenderbotConfig
-from .configuration_camembert import CAMEMBERT_PRETRAINED_CONFIG_ARCHIVE_MAP, CamembertConfig
-from .configuration_ctrl import CTRL_PRETRAINED_CONFIG_ARCHIVE_MAP, CTRLConfig
-from .configuration_deberta import DEBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP, DebertaConfig
-from .configuration_distilbert import DISTILBERT_PRETRAINED_CONFIG_ARCHIVE_MAP, DistilBertConfig
-from .configuration_dpr import DPR_PRETRAINED_CONFIG_ARCHIVE_MAP, DPRConfig
-from .configuration_electra import ELECTRA_PRETRAINED_CONFIG_ARCHIVE_MAP, ElectraConfig
-from .configuration_encoder_decoder import EncoderDecoderConfig
-from .configuration_flaubert import FLAUBERT_PRETRAINED_CONFIG_ARCHIVE_MAP, FlaubertConfig
-from .configuration_fsmt import FSMT_PRETRAINED_CONFIG_ARCHIVE_MAP, FSMTConfig
-from .configuration_funnel import FUNNEL_PRETRAINED_CONFIG_ARCHIVE_MAP, FunnelConfig
-from .configuration_gpt2 import GPT2_PRETRAINED_CONFIG_ARCHIVE_MAP, GPT2Config
-from .configuration_layoutlm import LAYOUTLM_PRETRAINED_CONFIG_ARCHIVE_MAP, LayoutLMConfig
-from .configuration_longformer import LONGFORMER_PRETRAINED_CONFIG_ARCHIVE_MAP, LongformerConfig
-from .configuration_lxmert import LXMERT_PRETRAINED_CONFIG_ARCHIVE_MAP, LxmertConfig
-from .configuration_marian import MarianConfig
-from .configuration_mbart import MBartConfig
-from .configuration_mmbt import MMBTConfig
-from .configuration_mobilebert import MOBILEBERT_PRETRAINED_CONFIG_ARCHIVE_MAP, MobileBertConfig
-from .configuration_openai import OPENAI_GPT_PRETRAINED_CONFIG_ARCHIVE_MAP, OpenAIGPTConfig
-from .configuration_pegasus import PegasusConfig
-from .configuration_prophetnet import PROPHETNET_PRETRAINED_CONFIG_ARCHIVE_MAP, ProphetNetConfig
-from .configuration_rag import RagConfig
-from .configuration_reformer import REFORMER_PRETRAINED_CONFIG_ARCHIVE_MAP, ReformerConfig
-from .configuration_retribert import RETRIBERT_PRETRAINED_CONFIG_ARCHIVE_MAP, RetriBertConfig
-from .configuration_roberta import ROBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP, RobertaConfig
-from .configuration_squeezebert import SQUEEZEBERT_PRETRAINED_CONFIG_ARCHIVE_MAP, SqueezeBertConfig
-from .configuration_t5 import T5_PRETRAINED_CONFIG_ARCHIVE_MAP, T5Config
-from .configuration_transfo_xl import TRANSFO_XL_PRETRAINED_CONFIG_ARCHIVE_MAP, TransfoXLConfig
-from .configuration_utils import PretrainedConfig
-from .configuration_xlm import XLM_PRETRAINED_CONFIG_ARCHIVE_MAP, XLMConfig
-from .configuration_xlm_prophetnet import XLM_PROPHETNET_PRETRAINED_CONFIG_ARCHIVE_MAP, XLMProphetNetConfig
-from .configuration_xlm_roberta import XLM_ROBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP, XLMRobertaConfig
-from .configuration_xlnet import XLNET_PRETRAINED_CONFIG_ARCHIVE_MAP, XLNetConfig
-from .data import (
+from xlibs.configuration_albert import ALBERT_PRETRAINED_CONFIG_ARCHIVE_MAP, AlbertConfig
+from xlibs.configuration_auto import ALL_PRETRAINED_CONFIG_ARCHIVE_MAP, CONFIG_MAPPING, AutoConfig
+from xlibs.configuration_bart import BartConfig
+from xlibs.configuration_bert import BERT_PRETRAINED_CONFIG_ARCHIVE_MAP, BertConfig
+from xlibs.configuration_bert_generation import BertGenerationConfig
+from xlibs.configuration_blenderbot import BLENDERBOT_PRETRAINED_CONFIG_ARCHIVE_MAP, BlenderbotConfig
+from xlibs.configuration_camembert import CAMEMBERT_PRETRAINED_CONFIG_ARCHIVE_MAP, CamembertConfig
+from xlibs.configuration_ctrl import CTRL_PRETRAINED_CONFIG_ARCHIVE_MAP, CTRLConfig
+from xlibs.configuration_deberta import DEBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP, DebertaConfig
+from xlibs.configuration_distilbert import DISTILBERT_PRETRAINED_CONFIG_ARCHIVE_MAP, DistilBertConfig
+from xlibs.configuration_dpr import DPR_PRETRAINED_CONFIG_ARCHIVE_MAP, DPRConfig
+from xlibs.configuration_electra import ELECTRA_PRETRAINED_CONFIG_ARCHIVE_MAP, ElectraConfig
+from xlibs.configuration_encoder_decoder import EncoderDecoderConfig
+from xlibs.configuration_flaubert import FLAUBERT_PRETRAINED_CONFIG_ARCHIVE_MAP, FlaubertConfig
+from xlibs.configuration_fsmt import FSMT_PRETRAINED_CONFIG_ARCHIVE_MAP, FSMTConfig
+from xlibs.configuration_funnel import FUNNEL_PRETRAINED_CONFIG_ARCHIVE_MAP, FunnelConfig
+from xlibs.configuration_gpt2 import GPT2_PRETRAINED_CONFIG_ARCHIVE_MAP, GPT2Config
+from xlibs.configuration_layoutlm import LAYOUTLM_PRETRAINED_CONFIG_ARCHIVE_MAP, LayoutLMConfig
+from xlibs.configuration_longformer import LONGFORMER_PRETRAINED_CONFIG_ARCHIVE_MAP, LongformerConfig
+from xlibs.configuration_lxmert import LXMERT_PRETRAINED_CONFIG_ARCHIVE_MAP, LxmertConfig
+from xlibs.configuration_marian import MarianConfig
+from xlibs.configuration_mbart import MBartConfig
+from xlibs.configuration_mmbt import MMBTConfig
+from xlibs.configuration_mobilebert import MOBILEBERT_PRETRAINED_CONFIG_ARCHIVE_MAP, MobileBertConfig
+from xlibs.configuration_openai import OPENAI_GPT_PRETRAINED_CONFIG_ARCHIVE_MAP, OpenAIGPTConfig
+from xlibs.configuration_pegasus import PegasusConfig
+from xlibs.configuration_prophetnet import PROPHETNET_PRETRAINED_CONFIG_ARCHIVE_MAP, ProphetNetConfig
+from xlibs.configuration_rag import RagConfig
+from xlibs.configuration_reformer import REFORMER_PRETRAINED_CONFIG_ARCHIVE_MAP, ReformerConfig
+from xlibs.configuration_retribert import RETRIBERT_PRETRAINED_CONFIG_ARCHIVE_MAP, RetriBertConfig
+from xlibs.configuration_roberta import ROBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP, RobertaConfig
+from xlibs.configuration_squeezebert import SQUEEZEBERT_PRETRAINED_CONFIG_ARCHIVE_MAP, SqueezeBertConfig
+from xlibs.configuration_t5 import T5_PRETRAINED_CONFIG_ARCHIVE_MAP, T5Config
+from xlibs.configuration_transfo_xl import TRANSFO_XL_PRETRAINED_CONFIG_ARCHIVE_MAP, TransfoXLConfig
+from xlibs.configuration_utils import PretrainedConfig
+from xlibs.configuration_xlm import XLM_PRETRAINED_CONFIG_ARCHIVE_MAP, XLMConfig
+from xlibs.configuration_xlm_prophetnet import XLM_PROPHETNET_PRETRAINED_CONFIG_ARCHIVE_MAP, XLMProphetNetConfig
+from xlibs.configuration_xlm_roberta import XLM_ROBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP, XLMRobertaConfig
+from xlibs.configuration_xlnet import XLNET_PRETRAINED_CONFIG_ARCHIVE_MAP, XLNetConfig
+from xlibs.data import (
     DataProcessor,
     InputExample,
     InputFeatures,
@@ -89,7 +89,7 @@ from .data import (
 )
 
 # Files and general utilities
-from .file_utils import (
+from xlibs.file_utils import (
     CONFIG_NAME,
     MODEL_CARD_NAME,
     PYTORCH_PRETRAINED_BERT_CACHE,
@@ -115,15 +115,15 @@ from .file_utils import (
     is_torch_available,
     is_torch_tpu_available,
 )
-from .hf_argparser import HfArgumentParser
+from xlibs.hf_argparser import HfArgumentParser
 
 # Model Cards
-from .modelcard import ModelCard
+from xlibs.modelcard import ModelCard
 
 # TF 2.0 <=> PyTorch conversion utilities
 
 # Pipelines
-from .pipelines import (
+from xlibs.pipelines import (
     Conversation,
     ConversationalPipeline,
     CsvPipelineDataFormat,
@@ -146,44 +146,44 @@ from .pipelines import (
 )
 
 # Retriever
-from .retrieval_rag import RagRetriever
+from xlibs.retrieval_rag import RagRetriever
 
 # Tokenizers
-from .tokenization_auto import TOKENIZER_MAPPING, AutoTokenizer
-from .tokenization_bart import BartTokenizer
-from .tokenization_bert import BasicTokenizer, BertTokenizer, WordpieceTokenizer
-from .tokenization_bert_japanese import BertJapaneseTokenizer, CharacterTokenizer, MecabTokenizer
-from .tokenization_bertweet import BertweetTokenizer
-from .tokenization_blenderbot import BlenderbotSmallTokenizer, BlenderbotTokenizer
-from .tokenization_ctrl import CTRLTokenizer
-from .tokenization_deberta import DebertaTokenizer
-from .tokenization_distilbert import DistilBertTokenizer
-from .tokenization_dpr import (
+from xlibs.tokenization_auto import TOKENIZER_MAPPING, AutoTokenizer
+from xlibs.tokenization_bart import BartTokenizer
+from xlibs.tokenization_bert import BasicTokenizer, BertTokenizer, WordpieceTokenizer
+from xlibs.tokenization_bert_japanese import BertJapaneseTokenizer, CharacterTokenizer, MecabTokenizer
+from xlibs.tokenization_bertweet import BertweetTokenizer
+from xlibs.tokenization_blenderbot import BlenderbotSmallTokenizer, BlenderbotTokenizer
+from xlibs.tokenization_ctrl import CTRLTokenizer
+from xlibs.tokenization_deberta import DebertaTokenizer
+from xlibs.tokenization_distilbert import DistilBertTokenizer
+from xlibs.tokenization_dpr import (
     DPRContextEncoderTokenizer,
     DPRQuestionEncoderTokenizer,
     DPRReaderOutput,
     DPRReaderTokenizer,
 )
-from .tokenization_electra import ElectraTokenizer
-from .tokenization_flaubert import FlaubertTokenizer
-from .tokenization_fsmt import FSMTTokenizer
-from .tokenization_funnel import FunnelTokenizer
-from .tokenization_gpt2 import GPT2Tokenizer
-from .tokenization_herbert import HerbertTokenizer
-from .tokenization_layoutlm import LayoutLMTokenizer
-from .tokenization_longformer import LongformerTokenizer
-from .tokenization_lxmert import LxmertTokenizer
-from .tokenization_mobilebert import MobileBertTokenizer
-from .tokenization_openai import OpenAIGPTTokenizer
-from .tokenization_phobert import PhobertTokenizer
-from .tokenization_prophetnet import ProphetNetTokenizer
-from .tokenization_rag import RagTokenizer
-from .tokenization_retribert import RetriBertTokenizer
-from .tokenization_roberta import RobertaTokenizer
-from .tokenization_squeezebert import SqueezeBertTokenizer
-from .tokenization_transfo_xl import TransfoXLCorpus, TransfoXLTokenizer
-from .tokenization_utils import PreTrainedTokenizer
-from .tokenization_utils_base import (
+from xlibs.tokenization_electra import ElectraTokenizer
+from xlibs.tokenization_flaubert import FlaubertTokenizer
+from xlibs.tokenization_fsmt import FSMTTokenizer
+from xlibs.tokenization_funnel import FunnelTokenizer
+from xlibs.tokenization_gpt2 import GPT2Tokenizer
+from xlibs.tokenization_herbert import HerbertTokenizer
+from xlibs.tokenization_layoutlm import LayoutLMTokenizer
+from xlibs.tokenization_longformer import LongformerTokenizer
+from xlibs.tokenization_lxmert import LxmertTokenizer
+from xlibs.tokenization_mobilebert import MobileBertTokenizer
+from xlibs.tokenization_openai import OpenAIGPTTokenizer
+from xlibs.tokenization_phobert import PhobertTokenizer
+from xlibs.tokenization_prophetnet import ProphetNetTokenizer
+from xlibs.tokenization_rag import RagTokenizer
+from xlibs.tokenization_retribert import RetriBertTokenizer
+from xlibs.tokenization_roberta import RobertaTokenizer
+from xlibs.tokenization_squeezebert import SqueezeBertTokenizer
+from xlibs.tokenization_transfo_xl import TransfoXLCorpus, TransfoXLTokenizer
+from xlibs.tokenization_utils import PreTrainedTokenizer
+from xlibs.tokenization_utils_base import (
     AddedToken,
     BatchEncoding,
     CharSpan,
@@ -192,62 +192,62 @@ from .tokenization_utils_base import (
     TensorType,
     TokenSpan,
 )
-from .tokenization_xlm import XLMTokenizer
+from xlibs.tokenization_xlm import XLMTokenizer
 
 
 if is_sentencepiece_available():
-    from .tokenization_albert import AlbertTokenizer
-    from .tokenization_bert_generation import BertGenerationTokenizer
-    from .tokenization_camembert import CamembertTokenizer
-    from .tokenization_marian import MarianTokenizer
-    from .tokenization_mbart import MBartTokenizer
-    from .tokenization_pegasus import PegasusTokenizer
-    from .tokenization_reformer import ReformerTokenizer
-    from .tokenization_t5 import T5Tokenizer
-    from .tokenization_xlm_prophetnet import XLMProphetNetTokenizer
-    from .tokenization_xlm_roberta import XLMRobertaTokenizer
-    from .tokenization_xlnet import XLNetTokenizer
+    from xlibs.tokenization_albert import AlbertTokenizer
+    from xlibs.tokenization_bert_generation import BertGenerationTokenizer
+    from xlibs.tokenization_camembert import CamembertTokenizer
+    from xlibs.tokenization_marian import MarianTokenizer
+    from xlibs.tokenization_mbart import MBartTokenizer
+    from xlibs.tokenization_pegasus import PegasusTokenizer
+    from xlibs.tokenization_reformer import ReformerTokenizer
+    from xlibs.tokenization_t5 import T5Tokenizer
+    from xlibs.tokenization_xlm_prophetnet import XLMProphetNetTokenizer
+    from xlibs.tokenization_xlm_roberta import XLMRobertaTokenizer
+    from xlibs.tokenization_xlnet import XLNetTokenizer
 else:
-    from .utils.dummy_sentencepiece_objects import *
+    from xlibs.utils.dummy_sentencepiece_objects import *
 
 if is_tokenizers_available():
-    from .tokenization_albert_fast import AlbertTokenizerFast
-    from .tokenization_bart_fast import BartTokenizerFast
-    from .tokenization_bert_fast import BertTokenizerFast
-    from .tokenization_camembert_fast import CamembertTokenizerFast
-    from .tokenization_distilbert_fast import DistilBertTokenizerFast
-    from .tokenization_dpr_fast import (
+    from xlibs.tokenization_albert_fast import AlbertTokenizerFast
+    from xlibs.tokenization_bart_fast import BartTokenizerFast
+    from xlibs.tokenization_bert_fast import BertTokenizerFast
+    from xlibs.tokenization_camembert_fast import CamembertTokenizerFast
+    from xlibs.tokenization_distilbert_fast import DistilBertTokenizerFast
+    from xlibs.tokenization_dpr_fast import (
         DPRContextEncoderTokenizerFast,
         DPRQuestionEncoderTokenizerFast,
         DPRReaderTokenizerFast,
     )
-    from .tokenization_electra_fast import ElectraTokenizerFast
-    from .tokenization_funnel_fast import FunnelTokenizerFast
-    from .tokenization_gpt2_fast import GPT2TokenizerFast
-    from .tokenization_herbert_fast import HerbertTokenizerFast
-    from .tokenization_layoutlm_fast import LayoutLMTokenizerFast
-    from .tokenization_longformer_fast import LongformerTokenizerFast
-    from .tokenization_lxmert_fast import LxmertTokenizerFast
-    from .tokenization_mbart_fast import MBartTokenizerFast
-    from .tokenization_mobilebert_fast import MobileBertTokenizerFast
-    from .tokenization_openai_fast import OpenAIGPTTokenizerFast
-    from .tokenization_pegasus_fast import PegasusTokenizerFast
-    from .tokenization_reformer_fast import ReformerTokenizerFast
-    from .tokenization_retribert_fast import RetriBertTokenizerFast
-    from .tokenization_roberta_fast import RobertaTokenizerFast
-    from .tokenization_squeezebert_fast import SqueezeBertTokenizerFast
-    from .tokenization_t5_fast import T5TokenizerFast
-    from .tokenization_utils_fast import PreTrainedTokenizerFast
-    from .tokenization_xlm_roberta_fast import XLMRobertaTokenizerFast
-    from .tokenization_xlnet_fast import XLNetTokenizerFast
+    from xlibs.tokenization_electra_fast import ElectraTokenizerFast
+    from xlibs.tokenization_funnel_fast import FunnelTokenizerFast
+    from xlibs.tokenization_gpt2_fast import GPT2TokenizerFast
+    from xlibs.tokenization_herbert_fast import HerbertTokenizerFast
+    from xlibs.tokenization_layoutlm_fast import LayoutLMTokenizerFast
+    from xlibs.tokenization_longformer_fast import LongformerTokenizerFast
+    from xlibs.tokenization_lxmert_fast import LxmertTokenizerFast
+    from xlibs.tokenization_mbart_fast import MBartTokenizerFast
+    from xlibs.tokenization_mobilebert_fast import MobileBertTokenizerFast
+    from xlibs.tokenization_openai_fast import OpenAIGPTTokenizerFast
+    from xlibs.tokenization_pegasus_fast import PegasusTokenizerFast
+    from xlibs.tokenization_reformer_fast import ReformerTokenizerFast
+    from xlibs.tokenization_retribert_fast import RetriBertTokenizerFast
+    from xlibs.tokenization_roberta_fast import RobertaTokenizerFast
+    from xlibs.tokenization_squeezebert_fast import SqueezeBertTokenizerFast
+    from xlibs.tokenization_t5_fast import T5TokenizerFast
+    from xlibs.tokenization_utils_fast import PreTrainedTokenizerFast
+    from xlibs.tokenization_xlm_roberta_fast import XLMRobertaTokenizerFast
+    from xlibs.tokenization_xlnet_fast import XLNetTokenizerFast
 
     if is_sentencepiece_available():
-        from .convert_slow_tokenizer import SLOW_TO_FAST_CONVERTERS, convert_slow_tokenizer
+        from xlibs.convert_slow_tokenizer import SLOW_TO_FAST_CONVERTERS, convert_slow_tokenizer
 else:
-    from .utils.dummy_tokenizers_objects import *
+    from xlibs.utils.dummy_tokenizers_objects import *
 
 # Trainer
-from .trainer_callback import (
+from xlibs.trainer_callback import (
     DefaultFlowCallback,
     PrinterCallback,
     ProgressCallback,
@@ -255,9 +255,9 @@ from .trainer_callback import (
     TrainerControl,
     TrainerState,
 )
-from .trainer_utils import EvalPrediction, EvaluationStrategy, set_seed
-from .training_args import TrainingArguments
-from .utils import logging
+from xlibs.trainer_utils import EvalPrediction, EvaluationStrategy, set_seed
+from xlibs.training_args import TrainingArguments
+from xlibs.utils import logging
 
 
 logger = logging.get_logger(__name__)  # pylint: disable=invalid-name
@@ -266,9 +266,9 @@ logger = logging.get_logger(__name__)  # pylint: disable=invalid-name
 # Modeling
 if is_torch_available():
     # Benchmarks
-    from .benchmark.benchmark import PyTorchBenchmark
-    from .benchmark.benchmark_args import PyTorchBenchmarkArguments
-    from .data.data_collator import (
+    from xlibs.benchmark.benchmark import PyTorchBenchmark
+    from xlibs.benchmark.benchmark_args import PyTorchBenchmarkArguments
+    from xlibs.data.data_collator import (
         DataCollator,
         DataCollatorForLanguageModeling,
         DataCollatorForPermutationLanguageModeling,
@@ -278,7 +278,7 @@ if is_torch_available():
         DataCollatorWithPadding,
         default_data_collator,
     )
-    from .data.datasets import (
+    from xlibs.data.datasets import (
         GlueDataset,
         GlueDataTrainingArguments,
         LineByLineTextDataset,
@@ -289,8 +289,8 @@ if is_torch_available():
         TextDataset,
         TextDatasetForNextSentencePrediction,
     )
-    from .generation_beam_search import BeamScorer, BeamSearchScorer
-    from .generation_logits_process import (
+    from xlibs.generation_beam_search import BeamScorer, BeamSearchScorer
+    from xlibs.generation_logits_process import (
         LogitsProcessor,
         LogitsProcessorList,
         LogitsWarper,
@@ -302,8 +302,8 @@ if is_torch_available():
         TopKLogitsWarper,
         TopPLogitsWarper,
     )
-    from .generation_utils import top_k_top_p_filtering
-    from .modeling_albert import (
+    from xlibs.generation_utils import top_k_top_p_filtering
+    from xlibs.modeling_albert import (
         ALBERT_PRETRAINED_MODEL_ARCHIVE_LIST,
         AlbertForMaskedLM,
         AlbertForMultipleChoice,
@@ -315,7 +315,7 @@ if is_torch_available():
         AlbertPreTrainedModel,
         load_tf_weights_in_albert,
     )
-    from .modeling_auto import (
+    from xlibs.modeling_auto import (
         MODEL_FOR_CAUSAL_LM_MAPPING,
         MODEL_FOR_MASKED_LM_MAPPING,
         MODEL_FOR_MULTIPLE_CHOICE_MAPPING,
@@ -339,7 +339,7 @@ if is_torch_available():
         AutoModelForTokenClassification,
         AutoModelWithLMHead,
     )
-    from .modeling_bart import (
+    from xlibs.modeling_bart import (
         BART_PRETRAINED_MODEL_ARCHIVE_LIST,
         BartForConditionalGeneration,
         BartForQuestionAnswering,
@@ -347,7 +347,7 @@ if is_torch_available():
         BartModel,
         PretrainedBartModel,
     )
-    from .modeling_bert import (
+    from xlibs.modeling_bert import (
         BERT_PRETRAINED_MODEL_ARCHIVE_LIST,
         BertForMaskedLM,
         BertForMultipleChoice,
@@ -362,13 +362,13 @@ if is_torch_available():
         BertPreTrainedModel,
         load_tf_weights_in_bert,
     )
-    from .modeling_bert_generation import (
+    from xlibs.modeling_bert_generation import (
         BertGenerationDecoder,
         BertGenerationEncoder,
         load_tf_weights_in_bert_generation,
     )
-    from .modeling_blenderbot import BLENDERBOT_PRETRAINED_MODEL_ARCHIVE_LIST, BlenderbotForConditionalGeneration
-    from .modeling_camembert import (
+    from xlibs.modeling_blenderbot import BLENDERBOT_PRETRAINED_MODEL_ARCHIVE_LIST, BlenderbotForConditionalGeneration
+    from xlibs.modeling_camembert import (
         CAMEMBERT_PRETRAINED_MODEL_ARCHIVE_LIST,
         CamembertForCausalLM,
         CamembertForMaskedLM,
@@ -378,14 +378,14 @@ if is_torch_available():
         CamembertForTokenClassification,
         CamembertModel,
     )
-    from .modeling_ctrl import CTRL_PRETRAINED_MODEL_ARCHIVE_LIST, CTRLLMHeadModel, CTRLModel, CTRLPreTrainedModel
-    from .modeling_deberta import (
+    from xlibs.modeling_ctrl import CTRL_PRETRAINED_MODEL_ARCHIVE_LIST, CTRLLMHeadModel, CTRLModel, CTRLPreTrainedModel
+    from xlibs.modeling_deberta import (
         DEBERTA_PRETRAINED_MODEL_ARCHIVE_LIST,
         DebertaForSequenceClassification,
         DebertaModel,
         DebertaPreTrainedModel,
     )
-    from .modeling_distilbert import (
+    from xlibs.modeling_distilbert import (
         DISTILBERT_PRETRAINED_MODEL_ARCHIVE_LIST,
         DistilBertForMaskedLM,
         DistilBertForMultipleChoice,
@@ -395,7 +395,7 @@ if is_torch_available():
         DistilBertModel,
         DistilBertPreTrainedModel,
     )
-    from .modeling_dpr import (
+    from xlibs.modeling_dpr import (
         DPRContextEncoder,
         DPRPretrainedContextEncoder,
         DPRPretrainedQuestionEncoder,
@@ -403,7 +403,7 @@ if is_torch_available():
         DPRQuestionEncoder,
         DPRReader,
     )
-    from .modeling_electra import (
+    from xlibs.modeling_electra import (
         ELECTRA_PRETRAINED_MODEL_ARCHIVE_LIST,
         ElectraForMaskedLM,
         ElectraForMultipleChoice,
@@ -415,8 +415,8 @@ if is_torch_available():
         ElectraPreTrainedModel,
         load_tf_weights_in_electra,
     )
-    from .modeling_encoder_decoder import EncoderDecoderModel
-    from .modeling_flaubert import (
+    from xlibs.modeling_encoder_decoder import EncoderDecoderModel
+    from xlibs.modeling_flaubert import (
         FLAUBERT_PRETRAINED_MODEL_ARCHIVE_LIST,
         FlaubertForMultipleChoice,
         FlaubertForQuestionAnswering,
@@ -426,8 +426,8 @@ if is_torch_available():
         FlaubertModel,
         FlaubertWithLMHeadModel,
     )
-    from .modeling_fsmt import FSMTForConditionalGeneration, FSMTModel, PretrainedFSMTModel
-    from .modeling_funnel import (
+    from xlibs.modeling_fsmt import FSMTForConditionalGeneration, FSMTModel, PretrainedFSMTModel
+    from xlibs.modeling_funnel import (
         FUNNEL_PRETRAINED_MODEL_ARCHIVE_LIST,
         FunnelBaseModel,
         FunnelForMaskedLM,
@@ -439,7 +439,7 @@ if is_torch_available():
         FunnelModel,
         load_tf_weights_in_funnel,
     )
-    from .modeling_gpt2 import (
+    from xlibs.modeling_gpt2 import (
         GPT2_PRETRAINED_MODEL_ARCHIVE_LIST,
         GPT2DoubleHeadsModel,
         GPT2ForSequenceClassification,
@@ -448,13 +448,13 @@ if is_torch_available():
         GPT2PreTrainedModel,
         load_tf_weights_in_gpt2,
     )
-    from .modeling_layoutlm import (
+    from xlibs.modeling_layoutlm import (
         LAYOUTLM_PRETRAINED_MODEL_ARCHIVE_LIST,
         LayoutLMForMaskedLM,
         LayoutLMForTokenClassification,
         LayoutLMModel,
     )
-    from .modeling_longformer import (
+    from xlibs.modeling_longformer import (
         LONGFORMER_PRETRAINED_MODEL_ARCHIVE_LIST,
         LongformerForMaskedLM,
         LongformerForMultipleChoice,
@@ -464,7 +464,7 @@ if is_torch_available():
         LongformerModel,
         LongformerSelfAttention,
     )
-    from .modeling_lxmert import (
+    from xlibs.modeling_lxmert import (
         LxmertEncoder,
         LxmertForPreTraining,
         LxmertForQuestionAnswering,
@@ -473,10 +473,10 @@ if is_torch_available():
         LxmertVisualFeatureEncoder,
         LxmertXLayer,
     )
-    from .modeling_marian import MarianMTModel
-    from .modeling_mbart import MBartForConditionalGeneration
-    from .modeling_mmbt import MMBTForClassification, MMBTModel, ModalEmbeddings
-    from .modeling_mobilebert import (
+    from xlibs.modeling_marian import MarianMTModel
+    from xlibs.modeling_mbart import MBartForConditionalGeneration
+    from xlibs.modeling_mmbt import MMBTForClassification, MMBTModel, ModalEmbeddings
+    from xlibs.modeling_mobilebert import (
         MOBILEBERT_PRETRAINED_MODEL_ARCHIVE_LIST,
         MobileBertForMaskedLM,
         MobileBertForMultipleChoice,
@@ -490,7 +490,7 @@ if is_torch_available():
         MobileBertPreTrainedModel,
         load_tf_weights_in_mobilebert,
     )
-    from .modeling_openai import (
+    from xlibs.modeling_openai import (
         OPENAI_GPT_PRETRAINED_MODEL_ARCHIVE_LIST,
         OpenAIGPTDoubleHeadsModel,
         OpenAIGPTForSequenceClassification,
@@ -499,8 +499,8 @@ if is_torch_available():
         OpenAIGPTPreTrainedModel,
         load_tf_weights_in_openai_gpt,
     )
-    from .modeling_pegasus import PegasusForConditionalGeneration
-    from .modeling_prophetnet import (
+    from xlibs.modeling_pegasus import PegasusForConditionalGeneration
+    from xlibs.modeling_prophetnet import (
         PROPHETNET_PRETRAINED_MODEL_ARCHIVE_LIST,
         ProphetNetDecoder,
         ProphetNetEncoder,
@@ -509,8 +509,8 @@ if is_torch_available():
         ProphetNetModel,
         ProphetNetPreTrainedModel,
     )
-    from .modeling_rag import RagModel, RagSequenceForGeneration, RagTokenForGeneration
-    from .modeling_reformer import (
+    from xlibs.modeling_rag import RagModel, RagSequenceForGeneration, RagTokenForGeneration
+    from xlibs.modeling_reformer import (
         REFORMER_PRETRAINED_MODEL_ARCHIVE_LIST,
         ReformerAttention,
         ReformerForMaskedLM,
@@ -520,8 +520,8 @@ if is_torch_available():
         ReformerModel,
         ReformerModelWithLMHead,
     )
-    from .modeling_retribert import RETRIBERT_PRETRAINED_MODEL_ARCHIVE_LIST, RetriBertModel, RetriBertPreTrainedModel
-    from .modeling_roberta import (
+    from xlibs.modeling_retribert import RETRIBERT_PRETRAINED_MODEL_ARCHIVE_LIST, RetriBertModel, RetriBertPreTrainedModel
+    from xlibs.modeling_roberta import (
         ROBERTA_PRETRAINED_MODEL_ARCHIVE_LIST,
         RobertaForCausalLM,
         RobertaForMaskedLM,
@@ -531,7 +531,7 @@ if is_torch_available():
         RobertaForTokenClassification,
         RobertaModel,
     )
-    from .modeling_squeezebert import (
+    from xlibs.modeling_squeezebert import (
         SQUEEZEBERT_PRETRAINED_MODEL_ARCHIVE_LIST,
         SqueezeBertForMaskedLM,
         SqueezeBertForMultipleChoice,
@@ -542,14 +542,14 @@ if is_torch_available():
         SqueezeBertModule,
         SqueezeBertPreTrainedModel,
     )
-    from .modeling_t5 import (
+    from xlibs.modeling_t5 import (
         T5_PRETRAINED_MODEL_ARCHIVE_LIST,
         T5ForConditionalGeneration,
         T5Model,
         T5PreTrainedModel,
         load_tf_weights_in_t5,
     )
-    from .modeling_transfo_xl import (
+    from xlibs.modeling_transfo_xl import (
         TRANSFO_XL_PRETRAINED_MODEL_ARCHIVE_LIST,
         AdaptiveEmbedding,
         TransfoXLLMHeadModel,
@@ -557,8 +557,8 @@ if is_torch_available():
         TransfoXLPreTrainedModel,
         load_tf_weights_in_transfo_xl,
     )
-    from .modeling_utils import Conv1D, PreTrainedModel, apply_chunking_to_forward, prune_layer
-    from .modeling_xlm import (
+    from xlibs.modeling_utils import Conv1D, PreTrainedModel, apply_chunking_to_forward, prune_layer
+    from xlibs.modeling_xlm import (
         XLM_PRETRAINED_MODEL_ARCHIVE_LIST,
         XLMForMultipleChoice,
         XLMForQuestionAnswering,
@@ -569,7 +569,7 @@ if is_torch_available():
         XLMPreTrainedModel,
         XLMWithLMHeadModel,
     )
-    from .modeling_xlm_prophetnet import (
+    from xlibs.modeling_xlm_prophetnet import (
         XLM_PROPHETNET_PRETRAINED_MODEL_ARCHIVE_LIST,
         XLMProphetNetDecoder,
         XLMProphetNetEncoder,
@@ -577,7 +577,7 @@ if is_torch_available():
         XLMProphetNetForConditionalGeneration,
         XLMProphetNetModel,
     )
-    from .modeling_xlm_roberta import (
+    from xlibs.modeling_xlm_roberta import (
         XLM_ROBERTA_PRETRAINED_MODEL_ARCHIVE_LIST,
         XLMRobertaForCausalLM,
         XLMRobertaForMaskedLM,
@@ -587,7 +587,7 @@ if is_torch_available():
         XLMRobertaForTokenClassification,
         XLMRobertaModel,
     )
-    from .modeling_xlnet import (
+    from xlibs.modeling_xlnet import (
         XLNET_PRETRAINED_MODEL_ARCHIVE_LIST,
         XLNetForMultipleChoice,
         XLNetForQuestionAnswering,
@@ -601,7 +601,7 @@ if is_torch_available():
     )
 
     # Optimization
-    from .optimization import (
+    from xlibs.optimization import (
         Adafactor,
         AdamW,
         get_constant_schedule,
@@ -613,19 +613,19 @@ if is_torch_available():
     )
 
     # Trainer
-    from .trainer import Trainer
-    from .trainer_pt_utils import torch_distributed_zero_first
+    from xlibs.trainer import Trainer
+    from xlibs.trainer_pt_utils import torch_distributed_zero_first
 else:
-    from .utils.dummy_pt_objects import *
+    from xlibs.utils.dummy_pt_objects import *
 
 
 if is_flax_available():
-    from .modeling_flax_bert import FlaxBertModel
-    from .modeling_flax_roberta import FlaxRobertaModel
+    from xlibs.modeling_flax_bert import FlaxBertModel
+    from xlibs.modeling_flax_roberta import FlaxRobertaModel
 else:
     # Import the same objects as dummies to get them in the namespace.
     # They will raise an import error if the user tries to instantiate / use them.
-    from .utils.dummy_flax_objects import *
+    from xlibs.utils.dummy_flax_objects import *
 
 
 if not is_tf_available() and not is_torch_available():

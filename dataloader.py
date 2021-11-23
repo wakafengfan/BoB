@@ -141,6 +141,14 @@ def read_convai2_split(split_dir):
     return persona, query, response
 
 
+def split_profile(raw):
+    s = ""
+    for k, v in raw.items():
+        v = v[0] if isinstance(v, list) else v
+        s += f"{k}#{v}*"
+    return s[:-1]
+
+
 def read_ecdt2019_split(split_dir, split_type='train'):
     profile_lst = []
     query_lst = []
@@ -160,7 +168,7 @@ def read_ecdt2019_split(split_dir, split_type='train'):
                     profile = data_dict['profile']
                     
                     q = dialog[-1][0]
-                    pfl = str(profile[uid[-1]])
+                    pfl = split_profile(profile[uid[-1]])
                     query_lst.append(''.join(q.split(' ')))
                     profile_lst.append(pfl)
                 
@@ -170,7 +178,7 @@ def read_ecdt2019_split(split_dir, split_type='train'):
                     profile = data_dict['profile']
                     
                     q, r = dialog[-2][0], dialog[-1][0]
-                    pfl = str(profile[uid[-1]])
+                    pfl = split_profile(profile[uid[-1]])
                     query_lst.append(''.join(q.split(' ')))
                     response_lst.append(''.join(r.split(' ')))
                     profile_lst.append(pfl)

@@ -20,6 +20,8 @@ import random as rd
 import json
 
 from argparse import ArgumentParser
+
+from bert4keras.tokenizers import load_vocab, Tokenizer
 from tqdm import tqdm
 from torch.utils.data import DataLoader
 
@@ -31,6 +33,7 @@ from dataloader import ConvAI2Dataset
 from dataloader import ECDT2019Dataset
 from dataloader import NLIDataset
 from evaluations import eval_distinct
+from configuration.config import *
 
 CUDA_AVAILABLE = False
 if torch.cuda.is_available():
@@ -43,11 +46,14 @@ device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cp
 
 def set_tokenier_and_model(tokenizer, model):
     ########## set special tokens
-    tokenizer.bos_token = tokenizer.cls_token
-    tokenizer.eos_token = tokenizer.sep_token
-    model.config.decoder_start_token_id = tokenizer.bos_token_id
-    model.config.eos_token_id = tokenizer.eos_token_id
-    model.config.pad_token_id = tokenizer.pad_token_id
+    # tokenizer.bos_token = tokenizer.cls_token
+    tokenizer.bos_token = tokenizer._token_start
+    # tokenizer.eos_token = tokenizer.sep_token
+    tokenizer.eos_token = tokenizer._token_end
+    model.config.decoder_start_token_id = tokenizer._token_start_id
+    # model.config.eos_token_id = tokenizer.eos_token_id
+    model.config.eos_token_id = tokenizer._token_end_id
+    model.config.pad_token_id = tokenizer._token_pad_id
     model.config.vocab_size = model.config.decoder.vocab_size
     model.config.max_length = 32
     model.config.min_length = 3
@@ -108,11 +114,12 @@ def prepara_inference_dict(pos_batch, neg_batch):
     pos_pre_input_ids, pos_pre_attention_mask, pos_pre_type_ids, pos_hyp_input_ids, pos_hyp_attention_mask, pos_hyp_type_ids, neg_pre_input_ids, neg_pre_attention_mask, neg_pre_type_ids, neg_hyp_input_ids, neg_hyp_attention_mask, neg_hyp_type_ids = prepare_inference_batch(
         pos_batch, neg_batch)
     return {'pos_pre_input_ids': pos_pre_input_ids, 'pos_pre_attention_mask': pos_pre_attention_mask,
-            'pos_pre_type_ids': pos_pre_type_ids, 'pos_hyp_input_ids': pos_hyp_input_ids,
-            'pos_hyp_attention_mask': pos_hyp_attention_mask, 'pos_hyp_type_ids': pos_hyp_type_ids,
+            'pos_pre_type_ids': pos_pre_type_ids,
+            'pos_hyp_input_ids': pos_hyp_input_ids, 'pos_hyp_attention_mask': pos_hyp_attention_mask,
+            'pos_hyp_type_ids': pos_hyp_type_ids,
             'neg_pre_input_ids': neg_pre_input_ids, 'neg_pre_attention_mask': neg_pre_attention_mask,
-            'neg_pre_type_ids': neg_pre_type_ids, 'neg_hyp_input_ids': neg_hyp_input_ids,
-            'neg_hyp_attention_mask': neg_hyp_attention_mask, 'neg_hyp_attention_mask': neg_hyp_attention_mask,
+            'neg_pre_type_ids': neg_pre_type_ids,
+            'neg_hyp_input_ids': neg_hyp_input_ids, 'neg_hyp_attention_mask': neg_hyp_attention_mask,
             'neg_hyp_type_ids': neg_hyp_type_ids}
 
 def coefficient(step, cof, gama):
@@ -131,7 +138,15 @@ def train(args):
     model.train()
 
     print("Load tokenized data...\n")
-    tokenizer = BertTokenizer.from_pretrained(args.encoder_model)
+    # tokenizer = BertTokenizer.from_pretrained(args.encoder_model)
+    dict_path = roberta_wwm_pt_path / "vocab.txt"
+
+    token_dict = load_vocab(
+        dict_path=str(dict_path),
+        # simplified=True,
+        startswith=['[PAD]', '[UNK]', '[CLS]', '[SEP]'],
+    )
+    tokenizer = Tokenizer(token_dict, do_lower_case=True)
 
     # Tokenize & Batchify
     if args.dumped_token is None:
@@ -334,7 +349,15 @@ def train(args):
 
 def predict(args):
     print("Load tokenized data...\n")
-    tokenizer = BertTokenizer.from_pretrained(args.encoder_model)
+    # tokenizer = BertTokenizer.from_pretrained(args.encoder_model)
+    dict_path = roberta_wwm_pt_path / "vocab.txt"
+
+    token_dict = load_vocab(
+        dict_path=str(dict_path),
+        # simplified=True,
+        startswith=['[PAD]', '[UNK]', '[CLS]', '[SEP]'],
+    )
+    tokenizer = Tokenizer(token_dict, do_lower_case=True)
 
     if args.dumped_token is None:
         print('Pre-tokenized files must be provided.')
@@ -426,7 +449,15 @@ def predict(args):
 
 def evaluation(args):
     print("Load tokenized data...\n")
-    tokenizer = BertTokenizer.from_pretrained(args.encoder_model)
+    # tokenizer = BertTokenizer.from_pretrained(args.encoder_model)
+    dict_path = roberta_wwm_pt_path / "vocab.txt"
+
+    token_dict = load_vocab(
+        dict_path=str(dict_path),
+        # simplified=True,
+        startswith=['[PAD]', '[UNK]', '[CLS]', '[SEP]'],
+    )
+    tokenizer = Tokenizer(token_dict, do_lower_case=True)
 
     if args.dumped_token is None:
         print('Pre-tokenized files must be provided.')
@@ -583,26 +614,29 @@ def evaluation(args):
 
 if __name__ == "__main__":
     parser = ArgumentParser("Transformers EncoderDecoderModel")
-    parser.add_argument("--do_train", action="store_true")
-    parser.add_argument("--do_predict", action="store_true")
-    parser.add_argument("--do_evaluation", action="store_true")
-    parser.add_argument("--word_stat", action="store_true")
-    parser.add_argument("--use_decoder2", action="store_true")
+    parser.add_argument("--do_train", default=True)
+    parser.add_argument("--do_predict", default=True)
+    parser.add_argument("--do_evaluation", default=True)
+    parser.add_argument("--word_stat", default=True)
+    parser.add_argument("--use_decoder2", default=True)
 
     parser.add_argument("--train_valid_split", type=float, default=0.1)
 
     parser.add_argument(
         "--encoder_model",
         type=str,
-        default="./pretrained_models/bert/bert-base-uncased/")
+        # default="./pretrained_models/bert/bert-base-uncased/")
+        default=str(roberta_wwm_pt_path))
     parser.add_argument(
         "--decoder_model",
         type=str,
-        default="./pretrained_models/bert/bert-base-uncased/")
+        # default="./pretrained_models/bert/bert-base-uncased/")
+        default=str(roberta_wwm_pt_path))
     parser.add_argument(
         "--decoder2_model",
         type=str,
-        default="./pretrained_models/bert/bert-base-uncased/")
+        # default="./pretrained_models/bert/bert-base-uncased/")
+        default=str(roberta_wwm_pt_path))
     parser.add_argument("--load_checkpoint", action="store_true")
     parser.add_argument("--checkpoint", type=str, default="./checkpoints/bertoverbert_epoch_5")
 
@@ -630,7 +664,7 @@ if __name__ == "__main__":
                         default="test_result.tsv")
     parser.add_argument("--dataset_type",
                         type=str,
-                        default='convai2')  # convai2, ecdt2019
+                        default='ecdt2019')  # convai2, ecdt2019
     parser.add_argument("--ppl_type",
                         type=str,
                         default='sents')  # sents, tokens
@@ -641,8 +675,8 @@ if __name__ == "__main__":
     '''
     parser.add_argument("--dumped_token",
                         type=str,
-                        default=None,
-                        required=True)
+                        default="./data/ECDT2019/ecdt2019_tokenized/")
+                        # required=True)
     args = parser.parse_args()
 
     if args.do_train:
