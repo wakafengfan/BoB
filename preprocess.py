@@ -16,6 +16,7 @@
 
 
 import json
+import os
 
 from argparse import ArgumentParser
 from xlibs import BertTokenizer
@@ -170,7 +171,7 @@ def preprocess(args):
         path = './data/ConvAI2/convai2_tokenized/' if not args.roberta else './data/ConvAI2/convai2_roberta_tokenized/'
     else:
         path = './data/ECDT2019/ecdt2019_tokenized/'
-    
+    os.makedirs(path, exist_ok=True)
     print(f"Saving tokenized dict at {path}")
     
     with open(path+'train_persona.json','w') as train_persona:
